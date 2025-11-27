@@ -1,8 +1,8 @@
 'solc --version' running
-'solc /home/sallyjunsongwang/SmartInv/tests/refined_analysis/additional_audited_bugs/5/vader-protocol/contracts/interfaces/iFACTORY.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc' running
-Compilation warnings/errors on /home/sallyjunsongwang/SmartInv/tests/refined_analysis/additional_audited_bugs/5/vader-protocol/contracts/interfaces/iFACTORY.sol:
-[91m/home/sallyjunsongwang/SmartInv/tests/refined_analysis/additional_audited_bugs/5/vader-protocol/contracts/interfaces/iFACTORY.sol:4:1: Error: Expected import directive or contract definition.[0m
-interface iFACTORY{
+'solc /home/sallyjunsongwang/SmartInv/tests/refined_analysis/additional_audited_bugs/65/contracts/contracts/interfaces/IFactory.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc' running
+Compilation warnings/errors on /home/sallyjunsongwang/SmartInv/tests/refined_analysis/additional_audited_bugs/65/contracts/contracts/interfaces/IFactory.sol:
+[91m/home/sallyjunsongwang/SmartInv/tests/refined_analysis/additional_audited_bugs/65/contracts/contracts/interfaces/IFactory.sol:5:1: Error: Expected import directive or contract definition.[0m
+interface IFactory {
 ^
 
 Traceback (most recent call last):
@@ -35,12 +35,12 @@ Traceback (most recent call last):
     return _run_solc(
   File "/home/sallyjunsongwang/.local/lib/python3.9/site-packages/crytic_compile/platform/solc.py", line 586, in _run_solc
     raise InvalidCompilation(f"Invalid solc compilation {stderr}")
-crytic_compile.platform.exceptions.InvalidCompilation: Invalid solc compilation /home/sallyjunsongwang/SmartInv/tests/refined_analysis/additional_audited_bugs/5/vader-protocol/contracts/interfaces/iFACTORY.sol:4:1: Error: Expected import directive or contract definition.
-interface iFACTORY{
+crytic_compile.platform.exceptions.InvalidCompilation: Invalid solc compilation /home/sallyjunsongwang/SmartInv/tests/refined_analysis/additional_audited_bugs/65/contracts/contracts/interfaces/IFactory.sol:5:1: Error: Expected import directive or contract definition.
+interface IFactory {
 ^
 
 None
-Error in /home/sallyjunsongwang/SmartInv/tests/refined_analysis/additional_audited_bugs/5/vader-protocol/contracts/interfaces/iFACTORY.sol
+Error in /home/sallyjunsongwang/SmartInv/tests/refined_analysis/additional_audited_bugs/65/contracts/contracts/interfaces/IFactory.sol
 Traceback (most recent call last):
   File "/home/sallyjunsongwang/.local/lib/python3.9/site-packages/crytic_compile/platform/solc.py", line 582, in _run_solc
     ret: Dict = json.loads(stdout)
@@ -71,8 +71,8 @@ Traceback (most recent call last):
     return _run_solc(
   File "/home/sallyjunsongwang/.local/lib/python3.9/site-packages/crytic_compile/platform/solc.py", line 586, in _run_solc
     raise InvalidCompilation(f"Invalid solc compilation {stderr}")
-crytic_compile.platform.exceptions.InvalidCompilation: Invalid solc compilation /home/sallyjunsongwang/SmartInv/tests/refined_analysis/additional_audited_bugs/5/vader-protocol/contracts/interfaces/iFACTORY.sol:4:1: Error: Expected import directive or contract definition.
-interface iFACTORY{
+crytic_compile.platform.exceptions.InvalidCompilation: Invalid solc compilation /home/sallyjunsongwang/SmartInv/tests/refined_analysis/additional_audited_bugs/65/contracts/contracts/interfaces/IFactory.sol:5:1: Error: Expected import directive or contract definition.
+interface IFactory {
 ^
 
 

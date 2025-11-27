@@ -1,9 +1,9 @@
 'solc --version' running
-'solc /home/sallyjunsongwang/SmartInv/tests/refined_analysis/additional_audited_bugs/106/contracts/test/helpers/test.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc' running
-Compilation warnings/errors on /home/sallyjunsongwang/SmartInv/tests/refined_analysis/additional_audited_bugs/106/contracts/test/helpers/test.sol:
-[91m/home/sallyjunsongwang/SmartInv/tests/refined_analysis/additional_audited_bugs/106/contracts/test/helpers/test.sol:55:28: Error: Expected token Semicolon got 'LParen'[0m
-        emit log_named_uint("gas", startGas - endGas);
-                           ^
+'solc /home/sallyjunsongwang/SmartInv/tests/refined_analysis/additional_audited_bugs/122/contracts/lib/forge-std/src/Test.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc' running
+Compilation warnings/errors on /home/sallyjunsongwang/SmartInv/tests/refined_analysis/additional_audited_bugs/122/contracts/lib/forge-std/src/Test.sol:
+[91m/home/sallyjunsongwang/SmartInv/tests/refined_analysis/additional_audited_bugs/122/contracts/lib/forge-std/src/Test.sol:9:1: Error: Expected import directive or contract definition.[0m
+abstract contract Test is DSTest {
+^
 
 Traceback (most recent call last):
   File "/home/sallyjunsongwang/.local/lib/python3.9/site-packages/crytic_compile/platform/solc.py", line 582, in _run_solc
@@ -35,12 +35,12 @@ Traceback (most recent call last):
     return _run_solc(
   File "/home/sallyjunsongwang/.local/lib/python3.9/site-packages/crytic_compile/platform/solc.py", line 586, in _run_solc
     raise InvalidCompilation(f"Invalid solc compilation {stderr}")
-crytic_compile.platform.exceptions.InvalidCompilation: Invalid solc compilation /home/sallyjunsongwang/SmartInv/tests/refined_analysis/additional_audited_bugs/106/contracts/test/helpers/test.sol:55:28: Error: Expected token Semicolon got 'LParen'
-        emit log_named_uint("gas", startGas - endGas);
-                           ^
+crytic_compile.platform.exceptions.InvalidCompilation: Invalid solc compilation /home/sallyjunsongwang/SmartInv/tests/refined_analysis/additional_audited_bugs/122/contracts/lib/forge-std/src/Test.sol:9:1: Error: Expected import directive or contract definition.
+abstract contract Test is DSTest {
+^
 
 None
-Error in /home/sallyjunsongwang/SmartInv/tests/refined_analysis/additional_audited_bugs/106/contracts/test/helpers/test.sol
+Error in /home/sallyjunsongwang/SmartInv/tests/refined_analysis/additional_audited_bugs/122/contracts/lib/forge-std/src/Test.sol
 Traceback (most recent call last):
   File "/home/sallyjunsongwang/.local/lib/python3.9/site-packages/crytic_compile/platform/solc.py", line 582, in _run_solc
     ret: Dict = json.loads(stdout)
@@ -71,8 +71,8 @@ Traceback (most recent call last):
     return _run_solc(
   File "/home/sallyjunsongwang/.local/lib/python3.9/site-packages/crytic_compile/platform/solc.py", line 586, in _run_solc
     raise InvalidCompilation(f"Invalid solc compilation {stderr}")
-crytic_compile.platform.exceptions.InvalidCompilation: Invalid solc compilation /home/sallyjunsongwang/SmartInv/tests/refined_analysis/additional_audited_bugs/106/contracts/test/helpers/test.sol:55:28: Error: Expected token Semicolon got 'LParen'
-        emit log_named_uint("gas", startGas - endGas);
-                           ^
+crytic_compile.platform.exceptions.InvalidCompilation: Invalid solc compilation /home/sallyjunsongwang/SmartInv/tests/refined_analysis/additional_audited_bugs/122/contracts/lib/forge-std/src/Test.sol:9:1: Error: Expected import directive or contract definition.
+abstract contract Test is DSTest {
+^
 
 

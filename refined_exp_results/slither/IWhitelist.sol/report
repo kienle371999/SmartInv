@@ -1,8 +1,8 @@
 'solc --version' running
-'solc /home/sallyjunsongwang/SmartInv/tests/refined_analysis/additional_audited_bugs/66/packages/contracts/contracts/Interfaces/IWhitelist.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc' running
-Compilation warnings/errors on /home/sallyjunsongwang/SmartInv/tests/refined_analysis/additional_audited_bugs/66/packages/contracts/contracts/Interfaces/IWhitelist.sol:
-[91m/home/sallyjunsongwang/SmartInv/tests/refined_analysis/additional_audited_bugs/66/packages/contracts/contracts/Interfaces/IWhitelist.sol:6:1: Error: Expected import directive or contract definition.[0m
-interface IWhitelist {
+'solc /home/sallyjunsongwang/SmartInv/tests/refined_analysis/additional_audited_bugs/28/contracts/interfaces/IWhiteList.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc' running
+Compilation warnings/errors on /home/sallyjunsongwang/SmartInv/tests/refined_analysis/additional_audited_bugs/28/contracts/interfaces/IWhiteList.sol:
+[91m/home/sallyjunsongwang/SmartInv/tests/refined_analysis/additional_audited_bugs/28/contracts/interfaces/IWhiteList.sol:7:1: Error: Expected import directive or contract definition.[0m
+interface IWhiteList {
 ^
 
 Traceback (most recent call last):
@@ -35,12 +35,12 @@ Traceback (most recent call last):
     return _run_solc(
   File "/home/sallyjunsongwang/.local/lib/python3.9/site-packages/crytic_compile/platform/solc.py", line 586, in _run_solc
     raise InvalidCompilation(f"Invalid solc compilation {stderr}")
-crytic_compile.platform.exceptions.InvalidCompilation: Invalid solc compilation /home/sallyjunsongwang/SmartInv/tests/refined_analysis/additional_audited_bugs/66/packages/contracts/contracts/Interfaces/IWhitelist.sol:6:1: Error: Expected import directive or contract definition.
-interface IWhitelist {
+crytic_compile.platform.exceptions.InvalidCompilation: Invalid solc compilation /home/sallyjunsongwang/SmartInv/tests/refined_analysis/additional_audited_bugs/28/contracts/interfaces/IWhiteList.sol:7:1: Error: Expected import directive or contract definition.
+interface IWhiteList {
 ^
 
 None
-Error in /home/sallyjunsongwang/SmartInv/tests/refined_analysis/additional_audited_bugs/66/packages/contracts/contracts/Interfaces/IWhitelist.sol
+Error in /home/sallyjunsongwang/SmartInv/tests/refined_analysis/additional_audited_bugs/28/contracts/interfaces/IWhiteList.sol
 Traceback (most recent call last):
   File "/home/sallyjunsongwang/.local/lib/python3.9/site-packages/crytic_compile/platform/solc.py", line 582, in _run_solc
     ret: Dict = json.loads(stdout)
@@ -71,8 +71,8 @@ Traceback (most recent call last):
     return _run_solc(
   File "/home/sallyjunsongwang/.local/lib/python3.9/site-packages/crytic_compile/platform/solc.py", line 586, in _run_solc
     raise InvalidCompilation(f"Invalid solc compilation {stderr}")
-crytic_compile.platform.exceptions.InvalidCompilation: Invalid solc compilation /home/sallyjunsongwang/SmartInv/tests/refined_analysis/additional_audited_bugs/66/packages/contracts/contracts/Interfaces/IWhitelist.sol:6:1: Error: Expected import directive or contract definition.
-interface IWhitelist {
+crytic_compile.platform.exceptions.InvalidCompilation: Invalid solc compilation /home/sallyjunsongwang/SmartInv/tests/refined_analysis/additional_audited_bugs/28/contracts/interfaces/IWhiteList.sol:7:1: Error: Expected import directive or contract definition.
+interface IWhiteList {
 ^
 
 

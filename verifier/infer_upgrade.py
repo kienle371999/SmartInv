@@ -20,7 +20,7 @@ from openai import OpenAI
 light_results= "./light_results" 
 refined_exp_results = "./refined_exp_results"
 large_exp_results_dir = "./large_exp_results"
-prompt_exp_results = '/Users/lekien/Documents/PhD/SmartInv/all_results/prompting_results'
+prompt_exp_results = '/opt/home/s4160469/SmartInv/all_results/prompting_results'
 client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
 vul_list = ["price manipulation", "privilege escalation", "business logic flaw", "inconsistent state update", "atomicity violation", "cross bridge inconsistency", "ID uniqueness violation"]
 
@@ -49,7 +49,7 @@ def gpt_infer(prompt):
 	return chat_completion.choices[0].message.content
 
 def find_program_points(folder, file_results_dir, limit):
-	path =f"/Users/lekien/Documents/PhD/SmartInv/verifier/prompts/program_point.txt"
+	path =f"/opt/home/s4160469/SmartInv/verifier/prompts/program_point.txt"
 	preparation_1 = open(path, "r")
 	if (os.path.isdir(file_results_dir)) is False:
 		os.mkdir(file_results_dir)
@@ -77,7 +77,7 @@ def find_program_points(folder, file_results_dir, limit):
 
 
 def find_invariants(folder, file_results_dir, limit):
-	path =f"/Users/lekien/Documents/PhD/SmartInv/verifier/prompts/invariant.txt"
+	path =f"/opt/home/s4160469/SmartInv/verifier/prompts/invariant.txt"
 	preparation_1 = open(path, "r")
 	if (os.path.isdir(file_results_dir)) is False:
 		os.mkdir(file_results_dir)
@@ -208,7 +208,7 @@ def find_bugs_light_mode(folder, file_results_dir, limit):
   
 def infer_bugs(folder, file_results_dir, exp_name, prompt, limit):
 	list = []
-	path =f"/Users/lekien/Documents/PhD/SmartInv/verifier/prompts/{prompt}"
+	path =f"/opt/home/s4160469/SmartInv/verifier/prompts/{prompt}"
 	print(path)
 	if exp_name == "gptscan":
 		preparation_1 = f"You are a smart contract auditor. You will be asked \

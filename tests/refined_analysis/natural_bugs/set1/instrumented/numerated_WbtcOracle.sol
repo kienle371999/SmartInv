@@ -1,53 +1,54 @@
-1 // SPDX-License-Identifier: MIT
-2 pragma solidity 0.8.10;
-3 import "../interfaces/IOracle.sol";
+1 // SPDX-License-Identifier: GPL-2.0-or-later
+2 
+3 pragma solidity ^0.8.0;
 4 
-5 // Chainlink Aggregator
-6 
-7 interface IAggregator {
-8     function latestAnswer() external view returns (int256 answer);
-9 }
-10 
-11 interface IERC20 {
-12     function totalSupply() external view returns (uint256);
-13     function balanceOf(address account) external view returns (uint256);
-14 }
-15 
-16 contract WbtcOracle is IOracle {
-17     IAggregator constant public BTCUSD = IAggregator(0xF4030086522a5bEEa4988F8cA5B36dbC97BeE88c);
-18 
-19     // Calculates the lastest exchange rate
-20     // Uses both divide and multiply only for tokens not supported directly by Chainlink, for example MKR/USD
-21     function _get() internal view returns (uint256) {
-22 
-23         return 1e16 / uint256(BTCUSD.latestAnswer());
-24     }
-25 
-26     // Get the latest exchange rate
-27     /// @inheritdoc IOracle
-28     function get(bytes calldata) public view override returns (bool, uint256) {
-29         return (true, _get());
+5 interface IChainlinkAggregatorV2V3 {
+6     function decimals() external view returns (uint8);
+7     function description() external view returns (string memory);
+8     function latestAnswer() external view returns (int256);
+9     function latestTimestamp() external view returns (uint256);
+10 }
+11 
+12 /// @notice Provides contract for fetching WBTC/ETH Chainlink price, using WBTC/BTC and BTC/ETH Chainlink oracles
+13 contract WBTCOracle is IChainlinkAggregatorV2V3 {
+14     address immutable public WBTCBTCChainlinkAggregator;
+15     address immutable public BTCETHChainlinkAggregator;
+16 
+17     constructor(
+18         address _WBTCBTCChainlinkAggregator,
+19         address _BTCETHChainlinkAggregator
+20     ) {
+21         // WBTCBTCChainlinkAggregator = "0xfdFD9C85aD200c506Cf9e21F1FD8dd01932FBB23";
+22         // BTCETHChainlinkAggregator = "0xdeb288F737066589598e9214E782fa5A8eD689e8";
+23 
+24         WBTCBTCChainlinkAggregator = _WBTCBTCChainlinkAggregator;
+25         BTCETHChainlinkAggregator = _BTCETHChainlinkAggregator;
+26     }
+27 
+28     function decimals() external pure override returns (uint8) {
+29         return 18;
 30     }
 31 
-32     // Check the last exchange rate without any state changes
-33     /// @inheritdoc IOracle
-34     function peek(bytes calldata) public view override returns (bool, uint256) {
-35         return (true, _get());
-36     }
-37 
-38     // Check the current spot exchange rate without any state changes
-39     /// @inheritdoc IOracle
-40     function peekSpot(bytes calldata data) external view override returns (uint256 rate) {
-41         (, rate) = peek(data);
-42     }
-43 
-44     /// @inheritdoc IOracle
-45     function name(bytes calldata) public pure override returns (string memory) {
-46         return "Chainlink BTC";
-47     }
+32     function description() external pure override returns (string memory) {
+33         return "WBTC / ETH";
+34     }
+35 
+36     /// @notice Get latest WBTC/BTC Chainlink feed timestamp
+37     /// @return timestamp latest WBTC/BTC Chainlink feed timestamp
+38     function latestTimestamp() external view override returns (uint256 timestamp) {
+39         return IChainlinkAggregatorV2V3(WBTCBTCChainlinkAggregator).latestTimestamp();
+40     }
+41 
+42     /// @notice Get WBTC/ETH price. It does not check Chainlink oracles staleness! If staleness check needed, it's recommended to use latestTimestamp() functions on both Chainlink feeds used
+43     /// @return answer WBTC/ETH price or 0 if failure
+44     function latestAnswer() external view override returns (int256 answer) {
+45         // get the WBTC/BTC and BTC/ETH prices
+46         int256 WBTCBTCPrice = IChainlinkAggregatorV2V3(WBTCBTCChainlinkAggregator).latestAnswer();
+47         int256 BTCETHPrice = IChainlinkAggregatorV2V3(BTCETHChainlinkAggregator).latestAnswer();
 48 
-49     /// @inheritdoc IOracle
-50     function symbol(bytes calldata) public pure override returns (string memory) {
-51         return "LINK/BTC";
-52     }
-53 }
+49         if (WBTCBTCPrice <= 0 || BTCETHPrice <= 0) return 0;
+50 
+51         // calculate WBTC/ETH price
+52         return WBTCBTCPrice * BTCETHPrice / 1e8;
+53     }
+54 }

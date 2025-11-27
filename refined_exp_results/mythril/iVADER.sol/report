@@ -7,5 +7,5 @@ mythril.interfaces.cli [ERROR]: Traceback (most recent call last):
     solc_binary, self.solc_version = util.extract_binary(file)
   File "/usr/local/lib/python3.10/site-packages/mythril/ethereum/util.py", line 222, in extract_binary
     with open(file) as f:
-FileNotFoundError: [Errno 2] No such file or directory: '/tmp//home/sallyjunsongwang/SmartInv/tests/refined_analysis/additional_audited_bugs/5/vader-protocol/contracts/interfaces/iVADER.sol'
+FileNotFoundError: [Errno 2] No such file or directory: '/tmp//home/sallyjunsongwang/SmartInv/tests/refined_analysis/additional_audited_bugs/70/contracts/interfaces/tokens/IVader.sol'
 

@@ -58,7 +58,7 @@ updated_tot_param = 'sallywww/tot_llama_update'
 verified_dir = "./verified_results"
 large_exp_results_dir = "./large_exp_results"
 refined_exp_results = "./refined_exp_results"
-light_sampled_results = "/home/sallyjunsongwang/SmartInv/all_results/sampled_results"
+light_sampled_results = "/Users/lekien/Documents/PhD/SmartInv/all_results/sampled_results"
 client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
 manual_time_budget = 150
 
@@ -265,7 +265,7 @@ def run_manticore(large_exp_results_dir, contract_file, filename):
 	result_file.close()
 		
 def run_large_scale_exp():
-	test_dir = "/home/sallyjunsongwang/SmartInv/tests/contracts"
+	test_dir = "/Users/lekien/Documents/PhD/SmartInv/tests/contracts"
 	for filename in os.listdir(test_dir):
 		contract_file = os.path.join(test_dir, filename)
 		run_verisol(large_exp_results_dir, contract_file, filename)
@@ -283,7 +283,7 @@ def run_refined_exp():
 	smartinv_prompt = "smartinv_functionalbug.txt"
 	line_limit = 300
 	file_results_dir = refined_exp_results
-	audited_bug_folder_path = f"/home/sallyjunsongwang/SmartInv/tests/refined_analysis/additional_audited_bugs"
+	audited_bug_folder_path = f"/Users/lekien/Documents/PhD/SmartInv/tests/refined_analysis/additional_audited_bugs"
 	if (os.path.isdir(file_results_dir)) is False:
 		os.mkdir(file_results_dir)
 	for root, dirs, files in os.walk(audited_bug_folder_path):
@@ -303,7 +303,7 @@ def run_refined_exp():
 			#run_manticore(file_results_dir, contract_file, filename)			
 	sets = ["set1", "set2", "set3"]
 	for i in sets:
-		test_folder_path = f"/home/sallyjunsongwang/SmartInv/tests/refined_analysis/natural_bugs/{i}"
+		test_folder_path = f"/Users/lekien/Documents/PhD/SmartInv/tests/refined_analysis/natural_bugs/{i}"
 		for root, dirs, files in os.walk(audited_bug_folder_path):
 			for filename in files:
 				if ".sol" not in filename:
@@ -428,7 +428,8 @@ def main():
 	if args.heavy == True:
 		run_heavy_SmartInv(args.file, args.contract, args.verify)
 	if args.light == True:
-		run_light_SmartInv(contract_file, filename, args.verify)
+		# run_light_SmartInv(contract_file, filename, args.verify)
+		pass
 
 	
 if __name__ == "__main__":
@@ -437,13 +438,13 @@ if __name__ == "__main__":
 	'''
 	sets = ["set1", "set2", "set3"]
 	for i in sets:
-		test_folder_path = f"/home/sallyjunsongwang/SmartInv/tests/refined_analysis/natural_bugs/{i}/instrumented"
+		test_folder_path = f"/Users/lekien/Documents/PhD/SmartInv/tests/refined_analysis/natural_bugs/{i}/instrumented"
 		for root, _, files in os.walk(test_folder_path):
 			for filename in files:
 				print(filename)
 				contract_file = os.path.join(root, filename)
 				run_light_SmartInv(contract_file, filename, False)
-	sample_folder = f"/home/sallyjunsongwang/SmartInv/tests/sample_test/instrumented"
+	sample_folder = f"/Users/lekien/Documents/PhD/SmartInv/tests/sample_test/instrumented"
 	for root, _, files in os.walk(sample_folder):
 		for filename in files:
 			print(filename)

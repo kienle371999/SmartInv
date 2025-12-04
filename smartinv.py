@@ -27,6 +27,7 @@ from verifier.infer import (
 	infer_tier1_context_single_contract,
 	prune_for_context,
 	prune_for_pp,
+	find_program_points,
 	find_invariants,
 	prune_for_inv,
 	find_critical_invariants,
@@ -39,7 +40,7 @@ from verifier.infer import (
 from verifier.infer_upgrade import (
 	light_results,
 	prompt_exp_results,
-	find_program_points,
+	# find_program_points,
 	# find_invariants,
 	find_bugs_light_mode, 
 	infer_bugs  	
@@ -360,9 +361,9 @@ def run_heavy_SmartInv(contract_file, filename, verify=False):
 	param = updated_tot_param 
 	contract_name = filename.replace(".sol", "") 
 	infer_tier1_context_single_contract(contract_file)
-	# pruned_contexts = prune_for_context(filename)
-	# time, pp = find_program_points(contract_file, filename, pp_dir, param)
-	# _, pruned_pp = prune_for_pp(filename)
+	pruned_contexts = prune_for_context(filename)
+	time, pp = find_program_points(contract_file, filename, pp_dir, param)
+	_, pruned_pp = prune_for_pp(filename)
 	time2, inv = find_invariants(contract_file, contract_name, inv_dir, param)
 	_, pruned_inv = prune_for_inv(filename)
 	time3, criticalInv = find_critical_invariants(contract_file, contract_name, criticalInv_dir, param)

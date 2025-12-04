@@ -40,7 +40,7 @@ from verifier.infer_upgrade import (
 	light_results,
 	prompt_exp_results,
 	find_program_points,
-	find_invariants,
+	# find_invariants,
 	find_bugs_light_mode, 
 	infer_bugs  	
 )

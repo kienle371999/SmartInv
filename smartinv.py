@@ -357,7 +357,8 @@ def run_runtime_exp():
 def run_heavy_SmartInv(contract_file, filename, verify=False): 
 	assert(os.path.exists(contract_file))
 	vul = ""
-	param = updated_tot_param  
+	param = updated_tot_param 
+	contract_name = filename.replace(".sol", "") 
 	infer_tier1_context_single_contract(contract_file)
 	# pruned_contexts = prune_for_context(filename)
 	# time, pp = find_program_points(contract_file, filename, pp_dir, param)
@@ -376,7 +377,6 @@ def run_heavy_SmartInv(contract_file, filename, verify=False):
 	print("===============final report========================\n")
 	print(f"inferred invariants are: {inv}\n")
 	print(f"inferred critical invariants are: {criticalInv}\n")
-	contract_name = filename.replace(".sol", "")
 	if os.path.exists({verified_dir}/{contract_name}) == False:
 		print(f"inferred vulnerabilities are: {vul}\n")
 	print(f"If verifier is enabled, verification proof is saved at {verified_dir}/{contract_name}\n")

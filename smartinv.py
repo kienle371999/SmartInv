@@ -359,14 +359,14 @@ def run_heavy_SmartInv(contract_file, filename, verify=False):
 	vul = ""
 	param = updated_tot_param  
 	infer_tier1_context_single_contract(contract_file)
-	pruned_contexts = prune_for_context(filename)
-	time, pp = find_program_points(contract_file, filename, pp_dir, param)
-	_, pruned_pp = prune_for_pp(filename)
+	# pruned_contexts = prune_for_context(filename)
+	# time, pp = find_program_points(contract_file, filename, pp_dir, param)
+	# _, pruned_pp = prune_for_pp(filename)
 	time2, inv = find_invariants(contract_file, contract_name, inv_dir, param)
 	_, pruned_inv = prune_for_inv(filename)
 	time3, criticalInv = find_critical_invariants(contract_file, contract_name, criticalInv_dir, param)
 	time4, vul = find_vulnerabilities(contract_file, contract_name, vul_dir, param)
-	_, pruned_criticalInv = prune_for_critical_inv(filename)
+	# _, pruned_criticalInv = prune_for_critical_inv(filename)
 	#TODO: add further upgraded implementation for ranked critical inv
 	post_processed_inv = invariants_list(pruned_inv)
 	insert_and_annotate(contract_file, filename, post_processed_inv)

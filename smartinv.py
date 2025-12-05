@@ -360,11 +360,11 @@ def run_heavy_SmartInv(contract_file, filename, verify=False):
 	vul = ""
 	param = updated_tot_param 
 	contract_name = filename.replace(".sol", "") 
-	infer_tier1_context_single_contract(contract_file)
-	pruned_contexts = prune_for_context(filename)
-	time, pp = find_program_points(contract_file, contract_name, pp_dir, param)
-	# _, pruned_pp = prune_for_pp(filename)
-	time2, inv = find_invariants(contract_file, contract_name, inv_dir, param)
+	# infer_tier1_context_single_contract(contract_file)
+	# pruned_contexts = prune_for_context(filename)
+	# time, pp = find_program_points(contract_file, contract_name, pp_dir, param)
+	# # _, pruned_pp = prune_for_pp(filename)
+	# time2, inv = find_invariants(contract_file, contract_name, inv_dir, param)
 	_, pruned_inv = prune_for_inv(contract_name)
 	time3, criticalInv = find_critical_invariants(contract_file, contract_name, criticalInv_dir, param)
 	time4, vul = find_vulnerabilities(contract_file, contract_name, vul_dir, param)

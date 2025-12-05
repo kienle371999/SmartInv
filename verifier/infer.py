@@ -516,7 +516,7 @@ def invariants_list(invariants_set):
 
 def insert_and_annotate(contract_file, contract_name, invariants): 
 	p = re.compile(r'(\d+)')
-	new_template = open(f'../verifier/instrumented_{contract_name}', "w+")
+	new_template = open(f'/opt/home/s4160469/SmartInv/verifier/instrumented_{contract_name}', "w+")
 	test_contract = open(contract_file, "r")
 	for line in test_contract.read().split("\n"): 
 			new_template.write(line + '\n')
@@ -527,9 +527,9 @@ def insert_and_annotate(contract_file, contract_name, invariants):
 	new_template.close()
 
 def cleaned_contract(contract_name):
-	file = open(f"../verifier/instrumented_{contract_name}.sol", 'r')
+	file = open(f"/opt/home/s4160469/SmartInv/verifier/instrumented_{contract_name}.sol", 'r')
 	filedata = file.read()
-	final_template = open(f'../verifier/cleaned_{contract_name}', "w+")
+	final_template = open(f'/opt/home/s4160469/SmartInv/verifier/cleaned_{contract_name}', "w+")
 	for line in filedata.split("\n"):
 		line = line.lstrip("0123456789+")
 		final_template.write(line + "\n")

@@ -372,7 +372,7 @@ def run_heavy_SmartInv(contract_file, filename, verify=False):
 	#TODO: add further upgraded implementation for ranked critical inv
 	post_processed_inv = invariants_list(pruned_inv)
 	insert_and_annotate(contract_file, filename, post_processed_inv)
-	cleaned_contract(filename)
+	cleaned_contract(contract_name)
 	if verify == True:
 		run_verisol(f"../verifier/cleaned_{filename}", filename)
 	print("===============final report========================\n")

@@ -365,8 +365,10 @@ def run_heavy_SmartInv(contract_file, filename, verify=False):
 	time, pp = find_program_points(contract_file, contract_name, pp_dir, param)
 	# _, pruned_pp = prune_for_pp(filename)
 	time2, inv = find_invariants(contract_file, contract_name, inv_dir, param)
+	torch.cuda.empty_cache()
 	_, pruned_inv = prune_for_inv(contract_name)
-	# time3, criticalInv = find_critical_invariants(contract_file, contract_name, criticalInv_dir, param)
+	time3, criticalInv = find_critical_invariants(contract_file, contract_name, criticalInv_dir, param)
+	torch.cuda.empty_cache() 
 	time4, vul = find_vulnerabilities(contract_file, contract_name, vul_dir, param)
 	# _, pruned_criticalInv = prune_for_critical_inv(filename)
 	#TODO: add further upgraded implementation for ranked critical inv
@@ -378,7 +380,7 @@ def run_heavy_SmartInv(contract_file, filename, verify=False):
 		run_verisol(f"../verifier/cleaned_{filename}", filename)
 	print("===============final report========================\n")
 	print(f"inferred invariants are: {inv}\n")
-	# print(f"inferred critical invariants are: {criticalInv}\n")
+	print(f"inferred critical invariants are: {criticalInv}\n")
 	if os.path.exists({verified_dir}/{contract_name}) == False:
 		print(f"inferred vulnerabilities are: {vul}\n")
 	print(f"If verifier is enabled, verification proof is saved at {verified_dir}/{contract_name}\n")

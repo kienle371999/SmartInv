@@ -287,21 +287,21 @@ def run_refined_exp():
 	audited_bug_folder_path = f"/opt/home/s4160469/SmartInv/tests/refined_analysis/additional_audited_bugs"
 	if (os.path.isdir(file_results_dir)) is False:
 		os.mkdir(file_results_dir)
-	for root, dirs, files in os.walk(audited_bug_folder_path):
-		for filename in files:
-			if ".sol" not in filename:
-				break
-			contract_file = os.path.join(root, filename)			
-			run_verisol(file_results_dir, contract_file, filename)
-			run_slither(file_results_dir, contract_file, filename)
-			#infer_bugs(audited_bug_folder_path, file_results_dir, smartinv_exp_name, smartinv_prompt, line_limit) 
-				#comment out the run_mythril, run_manticore, run_veriSmart and run_smartest for linux machine, unless you get 
-				#verismart working on linux; only use the following two commands on MacOS 
-				#the following command has to be in the test_dir, not outside it
-			run_mythril(file_results_dir, contract_file, filename)
-			#run_veriSmart(file_results_dir, contract_file, filename)
-			#run_smartest(file_results_dir, contract_file, filename)
-			#run_manticore(file_results_dir, contract_file, filename)			
+	# for root, dirs, files in os.walk(audited_bug_folder_path):
+	# 	for filename in files:
+	# 		if ".sol" not in filename:
+	# 			break
+	# 		contract_file = os.path.join(root, filename)			
+	# 		run_verisol(file_results_dir, contract_file, filename)
+	# 		run_slither(file_results_dir, contract_file, filename)
+	# 		#infer_bugs(audited_bug_folder_path, file_results_dir, smartinv_exp_name, smartinv_prompt, line_limit) 
+	# 			#comment out the run_mythril, run_manticore, run_veriSmart and run_smartest for linux machine, unless you get 
+	# 			#verismart working on linux; only use the following two commands on MacOS 
+	# 			#the following command has to be in the test_dir, not outside it
+	# 		run_mythril(file_results_dir, contract_file, filename)
+	# 		#run_veriSmart(file_results_dir, contract_file, filename)
+	# 		#run_smartest(file_results_dir, contract_file, filename)
+	# 		#run_manticore(file_results_dir, contract_file, filename)			
 	sets = ["set1"]
 	for i in sets:
 		test_folder_path = f"/opt/home/s4160469/SmartInv/tests/refined_analysis/natural_bugs/{i}"

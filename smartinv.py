@@ -302,7 +302,7 @@ def run_refined_exp():
 	# 		#run_veriSmart(file_results_dir, contract_file, filename)
 	# 		#run_smartest(file_results_dir, contract_file, filename)
 	# 		#run_manticore(file_results_dir, contract_file, filename)			
-	sets = ["set1/BGLD"]
+	sets = ["set2/Harvest"]
 	for i in sets:
 		test_folder_path = f"/opt/home/s4160469/SmartInv/tests/refined_analysis/natural_bugs/{i}"
 		for root, dirs, files in os.walk(audited_bug_folder_path):

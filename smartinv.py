@@ -312,7 +312,7 @@ def run_refined_exp():
 				contract_file = os.path.join(root, filename)
 				# run_verisol(file_results_dir, contract_file, filename)
 				# run_slither(file_results_dir, contract_file, filename)
-				infer_bugs(test_folder_path, file_results_dir, smartinv_exp_name, smartinv_prompt, line_limit)
+				# infer_bugs(test_folder_path, file_results_dir, smartinv_exp_name, smartinv_prompt, line_limit)
 				run_heavy_SmartInv(contract_file, filename) 					
 				#comment out the run_mythril, run_manticore, run_veriSmart and run_smartest for linux machine, unless you get 
 				#verismart working on linux; only use the following two commands on MacOS 

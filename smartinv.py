@@ -302,7 +302,7 @@ def run_refined_exp():
 	# 		#run_veriSmart(file_results_dir, contract_file, filename)
 	# 		#run_smartest(file_results_dir, contract_file, filename)
 	# 		#run_manticore(file_results_dir, contract_file, filename)			
-	sets = ["set2/Harvest"]
+	sets = ["set2/OneRing"]
 	for i in sets:
 		test_folder_path = f"/opt/home/s4160469/SmartInv/tests/refined_analysis/natural_bugs/{i}"
 		for root, dirs, files in os.walk(audited_bug_folder_path):
@@ -312,7 +312,8 @@ def run_refined_exp():
 				contract_file = os.path.join(root, filename)
 				# run_verisol(file_results_dir, contract_file, filename)
 				# run_slither(file_results_dir, contract_file, filename)
-				infer_bugs(test_folder_path, file_results_dir, smartinv_exp_name, smartinv_prompt, line_limit) 					
+				infer_bugs(test_folder_path, file_results_dir, smartinv_exp_name, smartinv_prompt, line_limit)
+				run_heavy_SmartInv(contract_file, filename) 					
 				#comment out the run_mythril, run_manticore, run_veriSmart and run_smartest for linux machine, unless you get 
 				#verismart working on linux; only use the following two commands on MacOS 
 				#the following command has to be in the test_dir, not outside it
@@ -356,9 +357,10 @@ def run_runtime_exp():
 	pass
 
 def run_heavy_SmartInv(contract_file, filename, verify=False): 
+	print(f"Heavy mode with contract file: {contract_file}, filename: {filename}")
 	assert(os.path.exists(contract_file))
 	vul = ""
-	param = updated_tot_param 
+	param = updated_tot_param
 	contract_name = filename.replace(".sol", "") 
 	infer_tier1_context_single_contract(contract_file)
 	pruned_contexts = prune_for_context(filename)

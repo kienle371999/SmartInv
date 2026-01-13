@@ -305,7 +305,7 @@ def run_refined_exp():
 	sets = ["set2/OneRing"]
 	for i in sets:
 		test_folder_path = f"/opt/home/s4160469/SmartInv/tests/refined_analysis/natural_bugs/{i}"
-		for root, dirs, files in os.walk(audited_bug_folder_path):
+		for root, dirs, files in os.walk(test_folder_path):
 			for filename in files:
 				if ".sol" not in filename:
 					break
